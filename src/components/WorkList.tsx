@@ -1,3 +1,4 @@
+import { animated, useTransition } from '@react-spring/web'
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
@@ -12,12 +13,25 @@ interface Props {
 }
 
 export const WorkList: React.FC<Props> = (props) => {
+  const transition = useTransition(props.works, {
+    keys: (item) => item.id,
+    from: {
+      opacity: 0,
+      transform: 'translateY(20px)',
+    },
+    enter: {
+      opacity: 1,
+      transform: 'translateY(0)',
+    },
+    delay: 1000,
+    trail: 200,
+  })
   return (
     <Ul>
-      {props.works.map((work) => (
-        <Li key={work.id}>
-          <Link to={`/works/${work.id}`}>
-            <WorkItem work={work} />
+      {transition((styles, item) => (
+        <Li style={styles}>
+          <Link to={`/works/${item.id}`}>
+            <WorkItem work={item} />
           </Link>
         </Li>
       ))}
@@ -40,11 +54,8 @@ const Ul = styled('ul')({
   },
 })
 
-const Li = styled('li')({
-  gridColumn: 'span 4',
-  '@media (max-width: 1200px)': {
-    gridColumn: 'span 6',
-  },
+const Li = styled(animated.li)({
+  gridColumn: 'span 6',
   [vars.media.tablet]: {
     marginBottom: vars.space.m,
   },

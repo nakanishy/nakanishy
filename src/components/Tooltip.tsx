@@ -1,6 +1,6 @@
+import { animated, useSpring } from '@react-spring/web'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { animated, useSpring } from 'react-spring'
 import styled from 'styled-components'
 
 import * as vars from '~/styles/variables'

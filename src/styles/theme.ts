@@ -8,11 +8,6 @@ export interface Theme {
   bg3: string
   border: string
   theme: string
-  success: string
-  error: string
-  shadowS: string
-  shadowM: string
-  shadowL: string
 }
 
 declare module 'styled-components' {
@@ -28,12 +23,7 @@ export const lightTheme: Theme = {
   bg2: '#f5f5f5',
   bg3: '#dddddd',
   border: '#ececec',
-  theme: '#6c05f2',
-  success: '#3dcc99',
-  error: '#ec297b',
-  shadowS: `0 4px 4px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0, 0, 0, 0.02)`,
-  shadowM: `0 8px 8px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.03)`,
-  shadowL: `0 16px 16px rgba(0, 0 ,0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.04)`,
+  theme: '#34A9DC',
 }
 
 export const darkTheme: Theme = {
@@ -45,10 +35,5 @@ export const darkTheme: Theme = {
   bg2: '#2a2a2a',
   bg3: '#444444',
   border: '#555555',
-  theme: '#6c05f2',
-  success: '#3dcc99',
-  error: '#ec297b',
-  shadowS: `0 4px 4px rgba(255, 255, 255, 0.06), 0 4px 8px rgba(255, 255, 255, 0.04)`,
-  shadowM: `0 8px 8px rgba(255, 255, 255, 0.06), 0 8px 16px rgba(255, 255, 255, 0.05)`,
-  shadowL: `0 16px 16px rgba(255, 255, 255, 0.06), 0 16px 32px rgba(255, 255, 255, 0.06)`,
+  theme: '#34A9DC',
 }

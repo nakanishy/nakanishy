@@ -2,9 +2,9 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import { About } from '~/pages/About'
+// import { About } from '~/pages/About'
 import { Home } from '~/pages/Home'
-import { WorkDetail } from '~/pages/WorkDetail'
+// import { WorkDetail } from '~/pages/WorkDetail'
 import { WorkList } from '~/pages/WorkList'
 import { Privacy as BrellaPrivacy } from '~/pages/privacies/brella/Privacy'
 import { Privacy as DarkenPrivacy } from '~/pages/privacies/darken/Privacy'
@@ -13,20 +13,22 @@ import { Privacy as JazzPrivacy } from '~/pages/privacies/jazz/Privacy'
 import { Privacy as NakerPrivacy } from '~/pages/privacies/naker/Privacy'
 
 import { App } from './App'
+import { Header } from './components/Header'
 
 const Root: React.FC = () => {
   return (
     <App>
+      <Header />
       <Switch>
-        <Route path="/works/:workId">
+        {/* <Route path="/works/:workId">
           <WorkDetail />
-        </Route>
+        </Route> */}
         <Route path="/works">
           <WorkList />
         </Route>
-        <Route path="/about" exact={true}>
+        {/* <Route path="/about" exact={true}>
           <About />
-        </Route>
+        </Route> */}
         <Route path="/naker/privacy" exact={true}>
           <NakerPrivacy />
         </Route>
@@ -43,7 +45,7 @@ const Root: React.FC = () => {
           <JazzPrivacy />
         </Route>
         <Route path="/" exact={true}>
-          <Home isDarkMode={isDarkMode} />
+          <Home />
         </Route>
       </Switch>
     </App>

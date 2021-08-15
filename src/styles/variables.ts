@@ -15,9 +15,7 @@ export const colorPalette = {
 }
 
 export const fontFamily = {
-  handWriting: '"Dancing Script", sans-serif',
-  sansSerif:
-    'Poppins, "Helvetica Neue", "Noto Sans JP", "Hiragino Sans", sans-serif',
+  sansSerif: 'Montserrat, "Helvetica Neue", sans-serif',
   monospace:
     '"Fira Mono", Consolas, Monaco, Menlo, Courier, "Ubuntu Mono", monospace',
 }
@@ -31,7 +29,7 @@ export const fontSize = {
   xl: 21,
   xxl: 24,
   xxxl: 36,
-  xxxxl: 46,
+  xxxxl: 80,
 }
 
 export const fontWeight = {

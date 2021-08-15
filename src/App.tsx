@@ -5,38 +5,19 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from '~/styles/GlobalStyles'
 import { darkTheme, lightTheme } from '~/styles/theme'
 
-import { AppContext, AppContextProvider } from './presentation/AppContext'
-import { SidebarContextProvider } from './presentation/SidebarContext'
+import { useDarkMode } from './presentation/useDarkMode'
 
 export const App: React.FC = (props) => {
-  React.useEffect(() => {
-    const baseStyle = `font-size: 20px;font-weight: bold;line-height: 1.6;`
-    console.log(
-      '%cCrafted by @nakanishy\n%chttps://nakanishy.com',
-      baseStyle,
-      ''
-    )
-  }, [])
+  const { isDarkMode } = useDarkMode()
   return (
-    <AppContextProvider>
-      <SidebarContextProvider>
-        <AppContext.Consumer>
-          {(value) => {
-            const theme = value?.isDarkMode ? darkTheme : lightTheme
-            return (
-              <ThemeProvider theme={theme}>
-                <Helmet
-                  // index.html と一致させる
-                  defaultTitle="Colorbase - クリエイターのための All-in-One カラーツール"
-                  titleTemplate="%s - Colorbase"
-                />
-                <GlobalStyles />
-                {props.children}
-              </ThemeProvider>
-            )
-          }}
-        </AppContext.Consumer>
-      </SidebarContextProvider>
-    </AppContextProvider>
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+      <Helmet
+        // index.html と一致させる
+        defaultTitle="nakanishy"
+        titleTemplate="%s - nakanishy"
+      />
+      <GlobalStyles />
+      {props.children}
+    </ThemeProvider>
   )
 }

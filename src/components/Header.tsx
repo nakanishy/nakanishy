@@ -9,10 +9,7 @@ import { fontSize, media, space } from '~/styles/variables'
 
 export const height = 150
 
-interface Props {
-  isDarkMode: boolean
-  onThemeChange: (isDarkMode: boolean) => void
-}
+interface Props {}
 
 const styles = {
   from: {
