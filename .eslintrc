@@ -1,0 +1,75 @@
+{
+  "env": {
+    "browser": true
+  },
+  "extends": [
+    "standard",
+    "plugin:jest/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "jest",
+    "import"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "dot-notation": "off",
+    "no-inner-declarations": "off",
+    "no-prototype-builtins": "off",
+    "no-dupe-class-members": "off",
+    "sort-imports": ["error", {
+      "ignoreDeclarationSort": true
+    }],
+    "import/order": ["error", {
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          ["parent", "sibling", "index"]
+        ],
+        "pathGroups": [
+          {
+            "pattern": "~/**",
+            "group": "internal"
+          }
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc"
+        }
+    }],
+    "react/jsx-uses-react": 1,
+    "react/jsx-uses-vars": 1,
+    "no-unused-expressions": "off",
+    "@typescript-eslint/no-unused-expressions": ["error", {
+      "allowShortCircuit": true
+    }],
+    "no-useless-constructor": "off",
+    // デフォルトのno-useをオフにしてtypescript-eslintをonにする
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error", { "variables": false }],
+    "@typescript-eslint/no-useless-constructor": "error",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-parameter-properties": [
+      "error",
+      {
+        "allows": [
+          "readonly",
+          "private",
+          "public",
+          "protected",
+          "private readonly",
+          "public readonly",
+          "protected readonly"
+        ]
+      }
+    ]
+  }
+}

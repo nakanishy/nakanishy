@@ -1,0 +1,19 @@
+# dependencies
+/node_modules
+
+# production
+dist
+
+# misc
+.DS_Store
+
+npm-debug.log*
+
+# Docker
+.config
+
+# node
+.node-version
+
+# sitemap
+static/sitemap*
