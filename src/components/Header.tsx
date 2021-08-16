@@ -1,7 +1,6 @@
 import { animated, useSpring } from '@react-spring/web'
 import * as React from 'react'
-import { Moon, Sun } from 'react-feather'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import styled, { useTheme } from 'styled-components'
 
 import { Inner } from '~/components/Inner'
@@ -22,8 +21,7 @@ const styles = {
   },
 }
 
-export const Header: React.FC<Props> = (props) => {
-  const location = useLocation()
+export const Header: React.FC<Props> = () => {
   const theme = useTheme()
   const headerStyles = useSpring(styles)
   const [isSp, setIsSp] = React.useState(
@@ -54,7 +52,7 @@ export const Header: React.FC<Props> = (props) => {
         >
           <Link to="/">
             <Avatar
-              src={'/static/images/new.png'}
+              src={'/static/images/nakanishy.svg'}
               // src={`/static/images/nakanishy${
               //   props.isDarkMode ? '-white' : ''
               // }.svg`}
@@ -79,13 +77,7 @@ export const Header: React.FC<Props> = (props) => {
                       activeStyle={{ color: theme.theme }}
                     >
                       <img
-                        src={`/static/images/nakanishy${
-                          location.pathname === '/'
-                            ? '-active'
-                            : props.isDarkMode
-                            ? '-white'
-                            : ''
-                        }.svg`}
+                        src={`/static/images/nakanishy.svg`}
                         alt="Top"
                         width={16}
                         height={16}
@@ -108,7 +100,7 @@ export const Header: React.FC<Props> = (props) => {
                 </NavItem>
               </NavList>
             </nav>
-            <ThemeChangeButton
+            {/* <ThemeChangeButton
               title={
                 props.isDarkMode
                   ? 'Switch to light theme'
@@ -121,7 +113,7 @@ export const Header: React.FC<Props> = (props) => {
               ) : (
                 <Moon color={theme.fg1} size={26} />
               )}
-            </ThemeChangeButton>
+            </ThemeChangeButton> */}
           </div>
         </Inner>
       </animated.div>
@@ -137,18 +129,18 @@ const Avatar = styled('img')({
   },
 })
 
-const ThemeChangeButton = styled('div')({}, () => ({
-  marginLeft: space.m,
-  padding: space.s,
-  cursor: 'pointer',
-  lineHeight: 1,
-  '&:hover': {
-    opacity: 0.6,
-  },
-  [media.sp]: {
-    marginLeft: space.s,
-  },
-}))
+// const ThemeChangeButton = styled('div')({}, () => ({
+//   marginLeft: space.m,
+//   padding: space.s,
+//   cursor: 'pointer',
+//   lineHeight: 1,
+//   '&:hover': {
+//     opacity: 0.6,
+//   },
+//   [media.sp]: {
+//     marginLeft: space.s,
+//   },
+// }))
 
 const NavList = styled('ul')({
   display: 'flex',

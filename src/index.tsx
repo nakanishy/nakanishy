@@ -14,6 +14,7 @@ import { Privacy as NakerPrivacy } from '~/pages/privacies/naker/Privacy'
 
 import { App } from './App'
 import { Header } from './components/Header'
+import { About } from './pages/About'
 
 const Root: React.FC = () => {
   return (
@@ -26,9 +27,9 @@ const Root: React.FC = () => {
         <Route path="/works">
           <WorkList />
         </Route>
-        {/* <Route path="/about" exact={true}>
+        <Route path="/about" exact={true}>
           <About />
-        </Route> */}
+        </Route>
         <Route path="/naker/privacy" exact={true}>
           <NakerPrivacy />
         </Route>

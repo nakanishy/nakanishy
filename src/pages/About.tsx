@@ -1,66 +1,63 @@
 import * as React from 'react'
+import styled from 'styled-components'
 
-import { Heading } from '~/components/Heading'
 import { Inner } from '~/components/Inner'
-import { OuterLink } from '~/components/OuterLink'
-import { P } from '~/components/P'
 import { SnsList } from '~/components/SnsList'
-import { useTheme } from '~/theme'
-import * as vars from '~/styles/variables'
+import {
+  fontSize,
+  fontWeight,
+  lineHeight,
+  media,
+  space,
+} from '~/styles/variables'
 
-interface Props {
-  isDarkMode: boolean
-}
+interface Props {}
 
-export const About: React.FC<Props> = (props) => {
-  const theme = useTheme(props.isDarkMode)
+export const About: React.FC<Props> = () => {
   return (
-    <div
+    <Inner
       style={{
-        backgroundColor: theme.backgroundColor,
+        maxWidth: 900,
+        paddingTop: space.l,
+        paddingBottom: space.xl,
       }}
     >
-      <Inner
-        style={{
-          maxWidth: 1000,
-          paddingTop: vars.space.l,
-          paddingBottom: vars.space.xl,
-        }}
-      >
-        <Heading>About @nakanishy</Heading>
-        <P style={{ marginTop: vars.space.xl }}>
-          I'm a designer & developer based in Japan.
-        </P>
-        <P>I was born in 1994 and grew up with computers.</P>
-        <P>
-          I've loved beautiful things. The beauty is not just something looks
-          good, but also something that is essential and has the way it should
-          be.
-        </P>
-        <P>I have 10+ years of experience in design and development.</P>
-        <P>
-          I worked at CyberAgent Inc. for a year and co-founded{' '}
-          <OuterLink
-            href="https://anyflow.co.jp"
-            title="Anyflow"
-            target="_blank"
-            rel="nofollow noopener"
-          >
-            Anyflow Inc.
-          </OuterLink>{' '}
-          in 2017. Now, I've worked as a freelancer since July 2020.
-        </P>
-        <P>
-          When I'm not in development, I
-          <ul style={{ marginTop: vars.space.l }}>
-            <li>Read books, especially philosophy and psychology.</li>
-            <li>Play piano and guitar.</li>
-            <li>Spend time in nature.</li>
-          </ul>
-        </P>
-        <P>Contact: nakanishy@yahoo.com</P>
-        <SnsList style={{ marginTop: vars.space.l }} />
-      </Inner>
-    </div>
+      <Heading>nakanishy</Heading>
+      <P>I'm nakanishy, a designer / developer hybrid based in Japan.</P>
+      <P>
+        I'm passionate about creating apps that are beautiful and provide great
+        user experiences.
+      </P>
+      <P>
+        I have experience in UI/UX design, brand design, and frontend
+        development throughout my freelance and startup career.
+      </P>
+      <P>
+        When I'm not in development:
+        <ul style={{ marginTop: space.l }}>
+          <li>Read books (philosophy and psychology especially)</li>
+          <li>Play piano and guitar</li>
+          <li>Spend time in nature</li>
+        </ul>
+      </P>
+      <SnsList style={{ marginTop: space.xl }} />
+    </Inner>
   )
 }
+
+const Heading = styled('h2')({
+  fontSize: fontSize.xxxxl,
+  fontWeight: fontWeight.bold,
+  lineHeight: lineHeight.heading,
+})
+
+const P = styled('p')((props) => ({
+  marginTop: space.l,
+  color: props.theme.fg1,
+  fontSize: fontSize.xxl,
+  fontWeight: fontWeight.normal,
+  lineHeight: 2,
+  [media.sp]: {
+    fontSize: fontSize.xl,
+  },
+}))

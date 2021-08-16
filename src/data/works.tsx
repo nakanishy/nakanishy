@@ -6,7 +6,7 @@ export interface Work {
   id: string
   name: string
   description: string
-  url: string
+  url?: string
   available?: boolean
   duration: string
   thumbnail: string
@@ -15,6 +15,22 @@ export interface Work {
 }
 
 export const works: Work[] = [
+  {
+    id: 'nakanishy',
+    name: 'nakanishy',
+    description: 'Logo work for nakanishy.',
+    duration: '2021',
+    thumbnail: '/static/images/nakanishy/n.png',
+    images: ['/static/images/nakanishy/n.png'],
+    tags: [
+      {
+        name: 'branding',
+      },
+      {
+        name: 'logo',
+      },
+    ],
+  },
   {
     id: 'anyflow',
     name: 'Anyflow',
@@ -36,35 +52,15 @@ export const works: Work[] = [
       },
     ],
   },
-  {
-    id: 'availy',
-    name: 'Availy',
-    description:
-      'Availy is a web service that allows you to search availability of an username across popular SNSs and web services.',
-    duration: '2016',
-    url: 'https://availy.me',
-    thumbnail: '/static/images/availy/ui.png',
-    images: ['/static/images/availy-ui.png'],
-    tags: [
-      {
-        name: 'Logo Design',
-      },
-      {
-        name: 'UI Design',
-      },
-      {
-        name: 'Front-end (React)',
-      },
-    ],
-  },
+
   {
     id: 'emojist',
     name: 'Emojist',
     description: 'Emojist は、絵文字でカテゴリー分けできる Todo リストです。',
     duration: '2020',
     url: 'https://apps.apple.com/us/app/emojist/id1544892484',
-    thumbnail: '/static/images/emojist.png',
-    images: ['/static/images/emojist.png'],
+    thumbnail: '/static/images/emojist/emojist.png',
+    images: ['/static/images/emojist/emojist.png'],
     tags: [
       {
         name: 'Logo Design',
@@ -109,8 +105,8 @@ export const works: Work[] = [
       'Darken は、あらゆる Web サイトをダークモードで見ることができるブラウザーです。',
     duration: '2021',
     url: 'https://apps.apple.com/jp/app/darken/id1571645290',
-    thumbnail: '/static/images/darken.png',
-    images: ['/static/images/darken-ui.png'],
+    thumbnail: '/static/images/darken/darken.png',
+    images: ['/static/images/darken/darken.png'],
     tags: [
       {
         name: 'Logo Design',
@@ -162,6 +158,27 @@ export const works: Work[] = [
       },
       {
         name: 'Front-end (React Native)',
+      },
+    ],
+  },
+  {
+    id: 'availy',
+    name: 'Availy',
+    description:
+      'Availy is a web service that allows you to search availability of an username across popular SNSs and web services.',
+    duration: '2016',
+    url: 'https://availy.me',
+    thumbnail: '/static/images/availy/ui.png',
+    images: ['/static/images/availy-ui.png'],
+    tags: [
+      {
+        name: 'Logo Design',
+      },
+      {
+        name: 'UI Design',
+      },
+      {
+        name: 'Front-end (React)',
       },
     ],
   },
