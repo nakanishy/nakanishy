@@ -57,7 +57,7 @@ const P = styled('p')((props) => ({
   color: props.theme.fg1,
   fontSize: fontSize.xl,
   fontWeight: fontWeight.normal,
-  lineHeight: 2,
+  lineHeight: lineHeight.body,
   [`@media ${media.sp}`]: {
     fontSize: fontSize.xl,
   },

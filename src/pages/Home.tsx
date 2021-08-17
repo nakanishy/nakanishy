@@ -32,7 +32,7 @@ export const Home: React.FC = () => {
       <Container>
         <div
           style={{
-            height: 400,
+            height: 500,
           }}
         >
           <Section style={{ height: '100%' }}>
@@ -98,5 +98,5 @@ const Bio = styled(animated.p)((props) => ({
   fontSize: fontSize.xxl,
   fontWeight: fontWeight.normal,
   textAlign: 'center',
-  lineHeight: lineHeight.body,
+  lineHeight: 1.6,
 }))
