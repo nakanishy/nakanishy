@@ -93,11 +93,6 @@ export const Header: React.FC<Props> = () => {
                     About
                   </_NavLink>
                 </NavItem>
-                <NavItem>
-                  <_NavLink to="/works" activeStyle={{ color: theme.theme }}>
-                    Works
-                  </_NavLink>
-                </NavItem>
               </NavList>
             </nav>
             {/* <ThemeChangeButton

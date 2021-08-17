@@ -15,16 +15,17 @@ import { Privacy as NakerPrivacy } from '~/pages/privacies/naker/Privacy'
 import { App } from './App'
 import { Header } from './components/Header'
 import { About } from './pages/About'
+import { WorkDetail } from './pages/WorkDetail'
 
 const Root: React.FC = () => {
   return (
     <App>
       <Header />
       <Switch>
-        {/* <Route path="/works/:workId">
+        <Route path="/work/:workId">
           <WorkDetail />
-        </Route> */}
-        <Route path="/works">
+        </Route>
+        <Route path="/work">
           <WorkList />
         </Route>
         <Route path="/about" exact={true}>

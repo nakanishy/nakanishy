@@ -30,7 +30,7 @@ export const WorkList: React.FC<Props> = (props) => {
     <Ul>
       {transition((styles, item) => (
         <Li style={styles}>
-          <Link to={`/works/${item.id}`}>
+          <Link to={`/work/${item.id}`}>
             <WorkItem work={item} />
           </Link>
         </Li>

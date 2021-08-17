@@ -1,185 +1,110 @@
-interface Tag {
-  name: string
-}
-
 export interface Work {
   id: string
   name: string
   description: string
   url?: string
-  available?: boolean
-  duration: string
+  unavailable?: boolean
+  year: string
   thumbnail: string
   images: string[]
-  tags: Tag[]
+  tags: string[]
 }
 
 export const works: Work[] = [
   {
     id: 'nakanishy',
     name: 'nakanishy',
-    description: 'Logo work for nakanishy.',
-    duration: '2021',
-    thumbnail: '/static/images/nakanishy/n.png',
-    images: ['/static/images/nakanishy/n.png'],
-    tags: [
-      {
-        name: 'branding',
-      },
-      {
-        name: 'logo',
-      },
+    description: 'The logo work for nakanishy.',
+    year: '2021',
+    thumbnail: '/static/images/nakanishy/nakanishy.png',
+    images: ['/static/images/nakanishy/nakanishy.png'],
+    tags: ['branding', 'logo'],
+  },
+
+  {
+    id: 'colorbase',
+    name: 'Colorbase',
+    description: 'Colorbase is an all-in-one color tool for all creatives.',
+    year: '2021',
+    url: 'https://colorbase.app',
+    thumbnail: '/static/images/colorbase/colorbase.png',
+    images: [
+      '/static/images/colorbase/colorbase.png',
+      '/static/images/colorbase/ui.png',
     ],
+    tags: ['branding', 'logo', 'ui', 'react'],
+  },
+  {
+    id: 'brella',
+    name: 'Brella',
+    description:
+      'A weather app with reliable information from the JMA (気象庁).',
+    year: '2021',
+    url:
+      'https://apps.apple.com/us/app/brella-%E6%B0%97%E8%B1%A1%E5%BA%81%E3%82%A2%E3%83%97%E3%83%AA/id1575466392',
+    thumbnail: '/static/images/brella/brella.png',
+    images: ['/static/images/brella/brella.png'],
+    tags: ['branding', 'logo', 'ui', 'react native'],
+  },
+  {
+    id: 'emojist',
+    name: 'Emojist',
+    description: 'Emojist は、絵文字でカテゴリー分けできる Todo リストです。',
+    year: '2020',
+    url: 'https://apps.apple.com/us/app/emojist/id1544892484',
+    thumbnail: '/static/images/emojist/emojist.png',
+    images: ['/static/images/emojist/emojist.png'],
+    tags: ['branding', 'logo', 'ui', 'react native'],
   },
   {
     id: 'anyflow',
     name: 'Anyflow',
     description:
-      'Anyflowは、様々なアプリケーションをかんたんに接続・連携することができる「アプリケーション連携サービス」です。',
-    duration: '2018 - 2020',
+      'I co-founded Anyflow and was responsible for design and frontend dev.',
+    year: '2018-2020',
     url: 'https://anyflow.jp',
     thumbnail: '/static/images/anyflow/anyflow.png',
-    images: ['/static/images/anyflow-ui.png'],
-    tags: [
-      {
-        name: 'branding',
-      },
-      {
-        name: 'ui',
-      },
-      {
-        name: 'react',
-      },
+    images: [
+      '/static/images/anyflow/anyflow.png',
+      '/static/images/anyflow-ui.png',
     ],
-  },
-
-  {
-    id: 'emojist',
-    name: 'Emojist',
-    description: 'Emojist は、絵文字でカテゴリー分けできる Todo リストです。',
-    duration: '2020',
-    url: 'https://apps.apple.com/us/app/emojist/id1544892484',
-    thumbnail: '/static/images/emojist/emojist.png',
-    images: ['/static/images/emojist/emojist.png'],
-    tags: [
-      {
-        name: 'Logo Design',
-      },
-      {
-        name: 'UI Design',
-      },
-      {
-        name: 'Front-end (React Native)',
-      },
-    ],
-  },
-  {
-    id: 'colorbase',
-    name: 'Colorbase',
-    description:
-      'Colorbase は、クリエイターのための All-in-One カラーツールです。',
-    duration: '2021',
-    url: 'https://colorbase.app',
-    thumbnail: '/static/images/colorbase/colorbase.png',
-    images: ['/static/images/colorbase.png'],
-    tags: [
-      {
-        name: 'branding',
-      },
-      {
-        name: 'logo',
-      },
-      {
-        name: 'type',
-      },
-      {
-        name: 'ui',
-      },
-      { name: 'react' },
-    ],
+    tags: ['branding', 'logo', 'ui', 'frontend dev', 'react'],
   },
   {
     id: 'darken',
     name: 'Darken',
     description:
-      'Darken は、あらゆる Web サイトをダークモードで見ることができるブラウザーです。',
-    duration: '2021',
+      'Darken is a dark mode browser that allows you to browse any website in dark mode.',
+    year: '2021',
     url: 'https://apps.apple.com/jp/app/darken/id1571645290',
     thumbnail: '/static/images/darken/darken.png',
     images: ['/static/images/darken/darken.png'],
-    tags: [
-      {
-        name: 'Logo Design',
-      },
-      {
-        name: 'UI Design',
-      },
-      {
-        name: 'Front-end (React Native)',
-      },
-    ],
+    tags: ['branding', 'logo', 'ui', 'react native'],
   },
-  {
-    id: 'brella',
-    name: 'Brella',
-    description: 'Brella は、非公式の気象庁天気アプリです。',
-    duration: '2021',
-    url:
-      'https://apps.apple.com/us/app/brella-%E6%B0%97%E8%B1%A1%E5%BA%81%E3%82%A2%E3%83%97%E3%83%AA/id1575466392',
-    thumbnail: '/static/images/brella/brella.png',
-    images: ['/static/images/brella.png'],
-    tags: [
-      {
-        name: 'Logo Design',
-      },
-      {
-        name: 'UI Design',
-      },
-      {
-        name: 'Front-end (React Native)',
-      },
-    ],
-  },
+
   {
     id: 'jazz',
     name: 'Jazz Standard',
-    description:
-      'Jazz Standard は、ジャズの名曲のコード進行をチェックできるアプリです。',
-    duration: '2021',
+    description: '',
+    year: '2021',
     url: 'https://apps.apple.com/us/app/jazz-standard/id1579478671',
-    thumbnail: '/static/images/jazz.png',
-    images: ['/static/images/jazz.png'],
-    tags: [
-      {
-        name: 'Logo Design',
-      },
-      {
-        name: 'UI Design',
-      },
-      {
-        name: 'Front-end (React Native)',
-      },
-    ],
+    thumbnail: '/static/images/jazz/jazz.png',
+    images: ['/static/images/jazz/jazz.png'],
+    tags: ['branding', 'logo', 'ui', 'react native'],
   },
   {
     id: 'availy',
     name: 'Availy',
     description:
-      'Availy is a web service that allows you to search availability of an username across popular SNSs and web services.',
-    duration: '2016',
+      'Availy is an utility tool to check username availability among social media.',
+    year: '2016',
     url: 'https://availy.me',
-    thumbnail: '/static/images/availy/ui.png',
-    images: ['/static/images/availy-ui.png'],
-    tags: [
-      {
-        name: 'Logo Design',
-      },
-      {
-        name: 'UI Design',
-      },
-      {
-        name: 'Front-end (React)',
-      },
+    thumbnail: '/static/images/availy/availy.png',
+    unavailable: true,
+    images: [
+      '/static/images/availy/availy.png',
+      '/static/images/availy/ui.png',
     ],
+    tags: ['branding', 'logo', 'ui', 'react'],
   },
 ]

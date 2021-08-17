@@ -1,20 +1,17 @@
 import * as React from 'react'
 import Zoom from 'react-medium-image-zoom'
 import { useParams } from 'react-router-dom'
-import styled from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 
-import Button from '~/components/Button'
-import { Heading } from '~/components/Heading'
 import { Inner } from '~/components/Inner'
 import { Work, works } from '~/data/works'
-import * as vars from '~/styles/variables'
-import { useTheme } from '~/theme'
+import { borderRadius, fontSize, fontWeight, space } from '~/styles/variables'
 
 interface Props {}
 
-export const WorkDetail: React.FC<Props> = (props) => {
+export const WorkDetail: React.FC<Props> = () => {
+  const theme = useTheme()
   const params = useParams<{ workId: string }>()
-  const theme = useTheme(props.isDarkMode)
   const work: Work | undefined = React.useMemo(() => {
     return works.find((it) => it.id === params.workId)
   }, [])
@@ -23,7 +20,7 @@ export const WorkDetail: React.FC<Props> = (props) => {
     return (
       <Container>
         <Inner style={{ maxWidth: 1200 }}>
-          <Heading>Not Found</Heading>
+          <h1>Not Found</h1>
         </Inner>
       </Container>
     )
@@ -33,39 +30,32 @@ export const WorkDetail: React.FC<Props> = (props) => {
       <Inner style={{ maxWidth: 1200 }}>
         <Title>{work.name}</Title>
         <Description>{work.description}</Description>
+        {/* <Year>{work.year}</Year> */}
         <TagList>
           {work.tags.map((tag) => (
-            <TagItem key={tag.name}>#{tag.name}</TagItem>
+            <TagItem key={tag}>{tag}</TagItem>
           ))}
         </TagList>
-        <Button
-          href={work.url}
-          target="_blank"
-          style={{
-            marginTop: vars.space.l,
-          }}
-        >
-          Visit
-        </Button>
-        {/* <H2>Role</H2>
-        <ul style={{ color: theme.fontColor.primary }}>
-          {work.roles.map((role) => (
-            <li key={role.label}>{role.label}</li>
-          ))}
-        </ul>
-        <H2>Duration</H2>
-        <P>{work.duration}</P> */}
-        <div style={{ marginTop: vars.space.xl }}>
+        {work.url ? (
+          !work.unavailable ? (
+            <Button href={work.url} target="_blank" rel="noopener">
+              View {work.name}
+            </Button>
+          ) : (
+            <UnavailableButton>This site was closed</UnavailableButton>
+          )
+        ) : null}
+        <div style={{ marginTop: space.xl }}>
           {work.images.map((imagePath, i) => (
-            <div key={imagePath} style={{ marginTop: vars.space.l }}>
+            <div key={imagePath} style={{ marginTop: space.l }}>
               <Zoom
-                overlayBgColorStart={theme.backgroundColor}
-                overlayBgColorEnd={theme.backgroundColor}
-                zoomMargin={vars.space.l}
+                overlayBgColorStart={theme.bg1}
+                overlayBgColorEnd={theme.bg1}
+                zoomMargin={space.l}
               >
                 <img
                   src={imagePath}
-                  alt={`${work.name} ui image ${i}`}
+                  alt={`${work.name} ${i + 1}`}
                   style={{ width: '100%' }}
                 />
               </Zoom>
@@ -77,40 +67,81 @@ export const WorkDetail: React.FC<Props> = (props) => {
   )
 }
 
-const Container = styled('div')({}, (props) => ({
+const Container = styled('div')({
   minHeight: '100%',
-  paddingBottom: vars.space.xl,
-  backgroundColor: props.theme.backgroundColor,
-}))
+  paddingBottom: space.xl,
+})
 
-const Title = styled('h2')({}, (props) => ({
-  margin: 0,
-  color: props.theme.fontColor.primary,
-  fontSize: vars.fontSize.xxxl,
+const Title = styled('h1')((props) => ({
+  color: props.theme.fg1,
+  fontSize: fontSize.xxxl,
 }))
 
 const TagList = styled('ul')({
   display: 'flex',
   alignItems: 'center',
   flexWrap: 'wrap',
-  marginTop: vars.space.m,
+  marginTop: space.m,
   paddingLeft: 0,
 })
 
-const TagItem = styled('li')({}, (props) => ({
-  marginRight: vars.space.s,
-  paddingRight: vars.space.m,
-  paddingLeft: vars.space.m,
+const TagItem = styled('li')((props) => ({
+  marginRight: space.s,
+  paddingRight: space.m,
+  paddingLeft: space.m,
   listStyle: 'none',
-  color: props.theme.fontColor.primary,
-  fontSize: vars.fontSize.m,
-  border: `1px solid #ddd`,
-  borderRadius: vars.borderRadius.m,
-  backgroundColor: props.theme.backgroundColor,
+  color: props.theme.fg1,
+  fontSize: fontSize.m,
+  border: `1px solid ${props.theme.border}`,
+  borderRadius: borderRadius.m,
+  backgroundColor: props.theme.bg1,
 }))
 
-const Description = styled('p')({}, (props) => ({
-  color: props.theme.fontColor.primary,
-  fontSize: vars.fontSize.l,
-  fontWeight: vars.fontWeight.normal,
+const Description = styled('p')((props) => ({
+  marginTop: space.s,
+  color: props.theme.fg1,
+  fontSize: fontSize.l,
+  fontWeight: fontWeight.normal,
+}))
+
+const Year = styled('p')((props) => ({
+  marginTop: space.m,
+  color: props.theme.fg1,
+  fontSize: fontSize.l,
+  fontWeight: fontWeight.normal,
+}))
+
+const Button = styled('a')((props) => ({
+  marginTop: space.l,
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  paddingRight: space.m,
+  paddingLeft: space.m,
+  height: 40,
+  minWidth: 120,
+  color: '#fff',
+  fontSize: fontSize.s,
+  fontWeight: fontWeight.normal,
+  textDecoration: 'none',
+  borderRadius: borderRadius.m,
+  backgroundColor: props.theme.theme,
+}))
+
+const UnavailableButton = styled('div')((props) => ({
+  marginTop: space.l,
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  paddingRight: space.m,
+  paddingLeft: space.m,
+  height: 40,
+  minWidth: 120,
+  color: '#fff',
+  fontSize: fontSize.s,
+  fontWeight: fontWeight.normal,
+  textDecoration: 'none',
+  borderRadius: borderRadius.m,
+  cursor: 'not-allowed',
+  backgroundColor: props.theme.bg3,
 }))

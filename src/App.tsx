@@ -6,9 +6,11 @@ import { GlobalStyles } from '~/styles/GlobalStyles'
 import { darkTheme, lightTheme } from '~/styles/theme'
 
 import { useDarkMode } from './presentation/useDarkMode'
+import { useScrollRestoration } from './presentation/useScrollRestoration'
 
 export const App: React.FC = (props) => {
   const { isDarkMode } = useDarkMode()
+  useScrollRestoration()
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <Helmet
