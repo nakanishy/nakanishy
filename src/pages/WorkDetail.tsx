@@ -6,6 +6,7 @@ import styled, { useTheme } from 'styled-components'
 
 import { Inner } from '~/components/Inner'
 import { Work, works } from '~/data/works'
+import { useMedia } from '~/presentation/useMedia'
 import {
   borderRadius,
   fontSize,
@@ -19,6 +20,7 @@ interface Props {}
 export const WorkDetail: React.FC<Props> = () => {
   const theme = useTheme()
   const params = useParams<{ workId: string }>()
+  const media = useMedia()
   const work: Work | undefined = React.useMemo(() => {
     return works.find((it) => it.id === params.workId)
   }, [])
@@ -60,17 +62,25 @@ export const WorkDetail: React.FC<Props> = () => {
         <div style={{ marginTop: space.xl }}>
           {work.images.map((imagePath, i) => (
             <div key={imagePath} style={{ marginBottom: space.l }}>
-              <Zoom
-                overlayBgColorStart={theme.bg1}
-                overlayBgColorEnd={theme.bg1}
-                zoomMargin={space.l}
-              >
+              {media !== 'sp' && media !== 'tablet' ? (
+                <Zoom
+                  overlayBgColorStart={theme.bg1}
+                  overlayBgColorEnd={theme.bg1}
+                  zoomMargin={space.l}
+                >
+                  <img
+                    src={imagePath}
+                    alt={`${work.name} ${i + 1}`}
+                    style={{ width: '100%' }}
+                  />
+                </Zoom>
+              ) : (
                 <img
                   src={imagePath}
                   alt={`${work.name} ${i + 1}`}
                   style={{ width: '100%' }}
                 />
-              </Zoom>
+              )}
             </div>
           ))}
         </div>

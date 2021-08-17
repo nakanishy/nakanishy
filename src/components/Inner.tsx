@@ -10,7 +10,7 @@ export const Inner = styled('div')({
   width: '100%',
   maxWidth: 1400,
   height: '100%',
-  [vars.media.sp]: {
+  [`@media ${vars.media.sp}`]: {
     paddingRight: vars.space.m,
     paddingLeft: vars.space.m,
   },

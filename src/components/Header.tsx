@@ -147,7 +147,7 @@ const _NavLink = styled(NavLink)((props) => ({
   '&:hover': {
     opacity: 0.6,
   },
-  [media.sp]: {
+  [`@media ${media.sp}`]: {
     paddingRight: space.s,
     paddingLeft: space.s,
   },

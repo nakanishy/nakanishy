@@ -47,7 +47,7 @@ const Ul = styled('ul')({
   width: '100%',
   listStyle: 'none',
   padding: 0,
-  [vars.media.tablet]: {
+  [`@media ${vars.media.tablet}`]: {
     display: 'flex',
     flexDirection: 'column',
     gridGap: vars.space.l,
@@ -56,7 +56,7 @@ const Ul = styled('ul')({
 
 const Li = styled(animated.li)({
   gridColumn: 'span 6',
-  [vars.media.tablet]: {
+  [`@media ${vars.media.tablet}`]: {
     marginBottom: vars.space.m,
   },
 })
