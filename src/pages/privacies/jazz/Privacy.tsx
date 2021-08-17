@@ -12,7 +12,7 @@ export const Privacy: React.FC = () => {
         paddingBottom: space.xl,
       }}
     >
-      <Heading>プライバシーポリシー</Heading>
+      <Title>プライバシーポリシー</Title>
       <Body>
         「Jazz
         Standard」では、以下のプライバシーポリシーに基づき、利用者の個人情報を取り扱います。
@@ -52,6 +52,12 @@ export const Privacy: React.FC = () => {
   )
 }
 
+const Title = styled('h1')({
+  fontSize: fontSize.xxl,
+  fontWeight: fontWeight.bold,
+  lineHeight: lineHeight.heading,
+})
+
 const Heading = styled('h2')({
   marginTop: space.l,
   fontSize: fontSize.l,
@@ -62,6 +68,5 @@ const Heading = styled('h2')({
 const Body = styled('p')({
   marginTop: space.m,
   fontSize: fontSize.m,
-  fontWeight: 400,
   lineHeight: lineHeight.body,
 })

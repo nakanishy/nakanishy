@@ -15,7 +15,7 @@ export const colorPalette = {
 }
 
 export const fontFamily = {
-  sansSerif: 'Montserrat, "Helvetica Neue", sans-serif',
+  sansSerif: 'Montserrat, "Helvetica Neue", "Hiragino Sans", sans-serif',
   monospace:
     '"Fira Mono", Consolas, Monaco, Menlo, Courier, "Ubuntu Mono", monospace',
 }
@@ -42,7 +42,7 @@ export const fontWeight = {
 export const lineHeight = {
   just: 1,
   heading: 1.4,
-  body: 2,
+  body: 1.8,
 }
 
 export const space = {
