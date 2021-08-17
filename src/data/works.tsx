@@ -46,10 +46,31 @@ export const works: Work[] = [
     images: ['/static/images/brella/brella.png'],
     tags: ['branding', 'logo', 'ui', 'react native'],
   },
+  // {
+  //   id: 'darken',
+  //   name: 'Darken',
+  //   description:
+  //     'Darken is a dark mode browser that allows you to browse any website in dark mode.',
+  //   year: '2021',
+  //   url: 'https://apps.apple.com/jp/app/darken/id1571645290',
+  //   thumbnail: '/static/images/darken/darken.png',
+  //   images: ['/static/images/darken/darken.png'],
+  //   tags: ['branding', 'logo', 'ui', 'react native'],
+  // },
+  // {
+  //   id: 'jazz',
+  //   name: 'Jazz Standard',
+  //   description: '',
+  //   year: '2021',
+  //   url: 'https://apps.apple.com/us/app/jazz-standard/id1579478671',
+  //   thumbnail: '/static/images/jazz/jazz.png',
+  //   images: ['/static/images/jazz/jazz.png'],
+  //   tags: ['branding', 'logo', 'ui', 'react native'],
+  // },
   {
     id: 'emojist',
     name: 'Emojist',
-    description: 'Emojist は、絵文字でカテゴリー分けできる Todo リストです。',
+    description: 'Emojist is a todo app with emojis.',
     year: '2020',
     url: 'https://apps.apple.com/us/app/emojist/id1544892484',
     thumbnail: '/static/images/emojist/emojist.png',
@@ -59,38 +80,17 @@ export const works: Work[] = [
   {
     id: 'anyflow',
     name: 'Anyflow',
-    description:
-      'I co-founded Anyflow and was responsible for design and frontend dev.',
-    year: '2018-2020',
+    description: `Anyflow is an iPaaS, Integration Platform as a Service.
+<br />
+I co-founded the company in 2017. I was in charge of frontend development and design.`,
+    year: '2018',
     url: 'https://anyflow.jp',
     thumbnail: '/static/images/anyflow/anyflow.png',
     images: [
       '/static/images/anyflow/anyflow.png',
       '/static/images/anyflow-ui.png',
     ],
-    tags: ['branding', 'logo', 'ui', 'frontend dev', 'react'],
-  },
-  {
-    id: 'darken',
-    name: 'Darken',
-    description:
-      'Darken is a dark mode browser that allows you to browse any website in dark mode.',
-    year: '2021',
-    url: 'https://apps.apple.com/jp/app/darken/id1571645290',
-    thumbnail: '/static/images/darken/darken.png',
-    images: ['/static/images/darken/darken.png'],
-    tags: ['branding', 'logo', 'ui', 'react native'],
-  },
-
-  {
-    id: 'jazz',
-    name: 'Jazz Standard',
-    description: '',
-    year: '2021',
-    url: 'https://apps.apple.com/us/app/jazz-standard/id1579478671',
-    thumbnail: '/static/images/jazz/jazz.png',
-    images: ['/static/images/jazz/jazz.png'],
-    tags: ['branding', 'logo', 'ui', 'react native'],
+    tags: ['branding', 'logo', 'ui', 'react'],
   },
   {
     id: 'availy',

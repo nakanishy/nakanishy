@@ -53,9 +53,6 @@ export const Header: React.FC<Props> = () => {
           <Link to="/">
             <Avatar
               src={'/static/images/nakanishy.svg'}
-              // src={`/static/images/nakanishy${
-              //   props.isDarkMode ? '-white' : ''
-              // }.svg`}
               alt="nakanishy"
               width={40}
               height={40}
@@ -76,15 +73,7 @@ export const Header: React.FC<Props> = () => {
                       exact={true}
                       activeStyle={{ color: theme.theme }}
                     >
-                      <img
-                        src={`/static/images/nakanishy.svg`}
-                        alt="Top"
-                        width={16}
-                        height={16}
-                        style={{
-                          display: 'block',
-                        }}
-                      />
+                      Work
                     </_NavLink>
                   </NavItem>
                 )}

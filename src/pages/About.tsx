@@ -23,7 +23,7 @@ export const About: React.FC<Props> = () => {
       }}
     >
       <Heading>nakanishy</Heading>
-      <P>I'm nakanishy, a designer / developer hybrid based in Japan.</P>
+      <P>I'm a designer / developer hybrid based in Japan.</P>
       <P>
         I'm passionate about creating apps that are beautiful and provide great
         user experiences.
@@ -35,8 +35,9 @@ export const About: React.FC<Props> = () => {
       <P>
         When I'm not in development:
         <ul style={{ marginTop: space.l }}>
+          <li>Doodle</li>
           <li>Read books (philosophy and psychology especially)</li>
-          <li>Play piano and guitar</li>
+          <li>Play piano</li>
           <li>Spend time in nature</li>
         </ul>
       </P>
@@ -54,7 +55,7 @@ const Heading = styled('h2')({
 const P = styled('p')((props) => ({
   marginTop: space.l,
   color: props.theme.fg1,
-  fontSize: fontSize.xxl,
+  fontSize: fontSize.xl,
   fontWeight: fontWeight.normal,
   lineHeight: 2,
   [media.sp]: {

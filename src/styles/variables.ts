@@ -29,7 +29,8 @@ export const fontSize = {
   xl: 21,
   xxl: 24,
   xxxl: 36,
-  xxxxl: 80,
+  xxxxl: 46,
+  xxxxxl: 64,
 }
 
 export const fontWeight = {

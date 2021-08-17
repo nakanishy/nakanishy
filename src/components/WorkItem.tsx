@@ -3,7 +3,13 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 import { Work } from '~/data/works'
-import * as vars from '~/styles/variables'
+import {
+  borderRadius,
+  fontSize,
+  fontWeight,
+  lineHeight,
+  space,
+} from '~/styles/variables'
 
 interface Props {
   work: Work
@@ -23,8 +29,15 @@ export const WorkItem: React.FC<Props> = ({ work }) => {
       tension: 500,
     },
   })
-  const textStyles = useSpring({
+  const titleStyles = useSpring({
     opacity: hovered ? 1 : 0,
+    transform: hovered ? 'scale(1)' : 'scale(1.2)',
+    config: {
+      tension: 500,
+    },
+  })
+  const timeStyles = useSpring({
+    opacity: hovered ? 0.8 : 0,
     transform: hovered ? 'scale(1)' : 'scale(1.2)',
     config: {
       tension: 500,
@@ -43,11 +56,26 @@ export const WorkItem: React.FC<Props> = ({ work }) => {
         }}
       />
       <WorkOverlay style={overlayStyles}>
+        <animated.time
+          style={{
+            marginTop: -1 * space.l,
+            display: 'block',
+            color: 'white',
+            fontSize: fontSize.m,
+            fontWeight: fontWeight.bold,
+            lineHeight: lineHeight.just,
+            ...timeStyles,
+          }}
+        >
+          {work.year}
+        </animated.time>
         <animated.h2
           style={{
+            marginTop: space.s,
             color: '#fff',
-            fontSize: vars.fontSize.xxl,
-            ...textStyles,
+            fontSize: fontSize.xxxl,
+            lineHeight: lineHeight.heading,
+            ...titleStyles,
           }}
         >
           {work.name}
@@ -59,7 +87,7 @@ export const WorkItem: React.FC<Props> = ({ work }) => {
 
 const Container = styled(animated.div)({
   position: 'relative',
-  borderRadius: vars.borderRadius.l,
+  borderRadius: borderRadius.l,
   cursor: 'pointer',
   overflow: 'hidden',
 })
@@ -76,10 +104,10 @@ const WorkOverlay = styled(animated.div)((props) => ({
   flexDirection: 'column',
   width: '100%',
   height: '100%',
-  paddingTop: vars.space.m,
-  paddingRight: vars.space.m,
-  paddingBottom: vars.space.m,
-  paddingLeft: vars.space.m,
+  paddingTop: space.m,
+  paddingRight: space.m,
+  paddingBottom: space.m,
+  paddingLeft: space.m,
   pointerEvents: 'none',
   backgroundColor: props.theme.theme + 'dd',
 }))

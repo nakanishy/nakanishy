@@ -48,7 +48,7 @@ export const Home: React.FC = () => {
             >
               <Name style={{ marginTop: '-10%', ...styles }}>nakanishy</Name>
               <Bio style={{ marginTop: space.m * 1.5, ...styles }}>
-                Designer based in Japan.
+                Designer Developer Hybrid based in 🇯🇵
               </Bio>
               <animated.div style={styles}>
                 <SnsList style={{ marginTop: space.l }} />
@@ -83,7 +83,7 @@ const Container = styled('div')((props) => ({
 
 const Name = styled(animated.h1)((props) => ({
   color: props.theme.fg1,
-  fontSize: fontSize.xxxxl,
+  fontSize: fontSize.xxxxxl,
   fontWeight: fontWeight.bold,
   textAlign: 'center',
   lineHeight: lineHeight.heading,
@@ -95,7 +95,7 @@ const Name = styled(animated.h1)((props) => ({
 const Bio = styled(animated.p)((props) => ({
   maxWidth: 700,
   color: props.theme.fg1,
-  fontSize: 26,
+  fontSize: fontSize.xxl,
   fontWeight: fontWeight.normal,
   textAlign: 'center',
   lineHeight: lineHeight.body,
