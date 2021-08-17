@@ -1,10 +1,15 @@
 import { animated, useSpring } from '@react-spring/web'
 import * as React from 'react'
+import { Moon, Sun } from 'react-feather'
 import { Link, NavLink } from 'react-router-dom'
 import styled, { useTheme } from 'styled-components'
 
+import { AppContext } from '~/App'
 import { Inner } from '~/components/Inner'
+import { useMedia } from '~/presentation/useMedia'
 import { fontSize, media, space } from '~/styles/variables'
+
+import { Nakanishy } from './Nakanishy'
 
 export const height = 150
 
@@ -23,20 +28,9 @@ const styles = {
 
 export const Header: React.FC<Props> = () => {
   const theme = useTheme()
+  const media = useMedia()
   const headerStyles = useSpring(styles)
-  const [isSp, setIsSp] = React.useState(
-    window.matchMedia('(min-width: 550px)').matches
-  )
-
-  React.useEffect(() => {
-    const handleResize = () => {
-      setIsSp(window.matchMedia('(min-width: 550px)').matches)
-    }
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
+  const appContext = React.useContext(AppContext)
 
   return (
     <header style={{ backgroundColor: theme.bg1 }}>
@@ -50,13 +44,8 @@ export const Header: React.FC<Props> = () => {
             height,
           }}
         >
-          <Link to="/">
-            <Avatar
-              src={'/static/images/nakanishy.svg'}
-              alt="nakanishy"
-              width={40}
-              height={40}
-            />
+          <Link to="/" style={{ height: 40 }}>
+            <Nakanishy size={40} color={theme.fg1} />
           </Link>
           <div
             style={{
@@ -66,7 +55,7 @@ export const Header: React.FC<Props> = () => {
           >
             <nav>
               <NavList>
-                {isSp && (
+                {media !== 'sp' && (
                   <NavItem>
                     <_NavLink
                       to="/"
@@ -84,20 +73,26 @@ export const Header: React.FC<Props> = () => {
                 </NavItem>
               </NavList>
             </nav>
-            {/* <ThemeChangeButton
-              title={
-                props.isDarkMode
-                  ? 'Switch to light theme'
-                  : 'Switch to dark theme'
-              }
-              onClick={() => props.onThemeChange(!props.isDarkMode)}
-            >
-              {props.isDarkMode ? (
-                <Sun color={theme.fg1} size={26} />
-              ) : (
-                <Moon color={theme.fg1} size={26} />
-              )}
-            </ThemeChangeButton> */}
+            {appContext && (
+              <ThemeChangeButton
+                title={
+                  appContext.isDarkMode
+                    ? 'Switch to light theme'
+                    : 'Switch to dark theme'
+                }
+                onClick={() =>
+                  appContext.changeMode(
+                    appContext.isDarkMode ? 'light' : 'dark'
+                  )
+                }
+              >
+                {appContext.isDarkMode ? (
+                  <Sun color={theme.fg1} size={26} />
+                ) : (
+                  <Moon color={theme.fg1} size={26} />
+                )}
+              </ThemeChangeButton>
+            )}
           </div>
         </Inner>
       </animated.div>
@@ -105,26 +100,18 @@ export const Header: React.FC<Props> = () => {
   )
 }
 
-const Avatar = styled('img')({
-  display: 'block',
-  marginRight: space.m,
-  [media.sp]: {
-    marginRight: space.s,
+const ThemeChangeButton = styled('div')({
+  marginLeft: space.m,
+  padding: space.s,
+  cursor: 'pointer',
+  lineHeight: 1,
+  '&:hover': {
+    opacity: 0.6,
+  },
+  [`@media ${media.sp}`]: {
+    marginLeft: space.s,
   },
 })
-
-// const ThemeChangeButton = styled('div')({}, () => ({
-//   marginLeft: space.m,
-//   padding: space.s,
-//   cursor: 'pointer',
-//   lineHeight: 1,
-//   '&:hover': {
-//     opacity: 0.6,
-//   },
-//   [media.sp]: {
-//     marginLeft: space.s,
-//   },
-// }))
 
 const NavList = styled('ul')({
   display: 'flex',

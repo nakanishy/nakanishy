@@ -87,7 +87,7 @@ const Name = styled(animated.h1)((props) => ({
   fontWeight: fontWeight.bold,
   textAlign: 'center',
   lineHeight: lineHeight.heading,
-  [media.sp]: {
+  [`@media ${media.sp}`]: {
     fontSize: 60,
   },
 }))
