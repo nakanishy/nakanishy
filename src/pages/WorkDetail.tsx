@@ -128,6 +128,7 @@ const TagList = styled('ul')({
 
 const TagItem = styled('li')((props) => ({
   marginRight: space.s,
+  marginBottom: space.s,
   paddingRight: space.m,
   paddingLeft: space.m,
   listStyle: 'none',
@@ -139,7 +140,7 @@ const TagItem = styled('li')((props) => ({
 }))
 
 const Button = styled('a')((props) => ({
-  marginTop: space.l,
+  marginTop: space.m,
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
