@@ -23,8 +23,7 @@ export const WorkList: React.FC<Props> = (props) => {
       opacity: 1,
       transform: 'translateY(0)',
     },
-    delay: 1000,
-    trail: 200,
+    trail: 100,
   })
   return (
     <Ul>
