@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 
 import { Inner } from '~/components/Inner'
@@ -12,6 +13,7 @@ export const Privacy: React.FC = () => {
         paddingBottom: space.xl,
       }}
     >
+      <Helmet title="Jazz Standard プライバシーポリシー" />
       <Title>プライバシーポリシー</Title>
       <Body>
         「Jazz

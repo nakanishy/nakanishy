@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 
 import { Inner } from '~/components/Inner'
@@ -12,6 +13,7 @@ export const Privacy: React.FC = () => {
         paddingBottom: space.xl,
       }}
     >
+      <Helmet title="Brella プライバシーポリシー" />
       <Title>プライバシーポリシー</Title>
       <Body>
         「Brella」では、以下のプライバシーポリシーに基づき、利用者の個人情報を取り扱います。

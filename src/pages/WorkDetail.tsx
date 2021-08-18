@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { ExternalLink } from 'react-feather'
+import { Helmet } from 'react-helmet'
 import Zoom from 'react-medium-image-zoom'
 import { useParams } from 'react-router-dom'
 import styled, { useTheme } from 'styled-components'
@@ -36,6 +37,7 @@ export const WorkDetail: React.FC<Props> = () => {
   }
   return (
     <Container>
+      <Helmet title={work.name} />
       <Inner style={{ maxWidth: 1200 }}>
         <Year>{work.year}</Year>
         <Title>{work.name}</Title>

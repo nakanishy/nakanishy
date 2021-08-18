@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 
 import { Inner } from '~/components/Inner'
@@ -7,6 +8,7 @@ import { fontSize, fontWeight, lineHeight, space } from '~/styles/variables'
 export const Privacy: React.FC = () => {
   return (
     <Inner style={{ maxWidth: 1000, paddingBottom: space.xl }}>
+      <Helmet title="Naker プライバシーポリシー" />
       <Title>プライバシーポリシー</Title>
       <Body>
         「Naker」では、以下のプライバシーポリシーに基づき、利用者の個人情報を取り扱います。
