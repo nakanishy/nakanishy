@@ -171,5 +171,5 @@ const UnavailableButton = styled('div')((props) => ({
   textDecoration: 'none',
   borderRadius: borderRadius.m,
   cursor: 'not-allowed',
-  backgroundColor: props.theme.bg3,
+  backgroundColor: props.theme.isDark ? props.theme.bg3 : '#bbb',
 }))
