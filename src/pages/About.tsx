@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 
 import { Inner } from '~/components/Inner'
@@ -22,23 +23,30 @@ export const About: React.FC<Props> = () => {
         paddingBottom: space.xl,
       }}
     >
+      <Helmet title="About" />
       <Heading>nakanishy</Heading>
-      <P>I'm a designer / developer hybrid based in Japan.</P>
+      <P>I'm a designer/developer hybrid based in Japan.</P>
       <P>
-        I'm passionate about creating apps that are beautiful and provide great
-        user experiences.
+        I'm passionate about seeking "What is the essential UX/UI?".
+        <br />
+        Also, I love to design brands.
       </P>
       <P>
-        I have experience in UI/UX design, brand design, and frontend
-        development throughout my freelance and startup career.
+        I co-founded{' '}
+        <a href="https://anyflow.jp" target="_blank" rel="noopener">
+          Anyflow
+        </a>{' '}
+        in 2017, and have been working as a solo app creator since 2020. I have
+        10+ years experience in frontend development and UX/UI design.
       </P>
       <P>
         When I'm not in development:
         <ul style={{ marginTop: space.l }}>
-          <li>Doodle</li>
-          <li>Read books (philosophy and psychology especially)</li>
           <li>Play piano</li>
           <li>Spend time in nature</li>
+          <li>Read books (philosophy and psychology especially)</li>
+          <li>Doodle</li>
+          <li>Daydream</li>
         </ul>
       </P>
       <SnsList style={{ marginTop: space.xl }} />

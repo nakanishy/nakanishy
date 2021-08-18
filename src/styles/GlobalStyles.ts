@@ -22,6 +22,9 @@ body,
 #react-root {
   height: 100%;
 }
+a {
+  color: ${(p) => p.theme.theme};
+}
 body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

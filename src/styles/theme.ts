@@ -23,7 +23,7 @@ export const lightTheme: Theme = {
   bg2: '#f5f5f5',
   bg3: '#dddddd',
   border: '#ececec',
-  theme: '#34A9DC',
+  theme: '#0EAFF4',
 }
 
 export const darkTheme: Theme = {
@@ -35,5 +35,5 @@ export const darkTheme: Theme = {
   bg2: '#2a2a2a',
   bg3: '#444444',
   border: '#555555',
-  theme: '#34A9DC',
+  theme: '#0EAFF4',
 }

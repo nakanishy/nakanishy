@@ -86,10 +86,7 @@ I co-founded the company in 2017. I was in charge of frontend development and de
     year: '2018',
     url: 'https://anyflow.jp',
     thumbnail: '/static/images/anyflow/anyflow.png',
-    images: [
-      '/static/images/anyflow/anyflow.png',
-      '/static/images/anyflow-ui.png',
-    ],
+    images: ['/static/images/anyflow/anyflow.png'],
     tags: ['branding', 'logo', 'ui', 'react'],
   },
   {
