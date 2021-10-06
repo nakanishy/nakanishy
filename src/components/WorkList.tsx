@@ -10,6 +10,7 @@ import { WorkItem } from './WorkItem'
 
 interface Props {
   works: Work[]
+  style?: React.CSSProperties
 }
 
 export const WorkList: React.FC<Props> = (props) => {
@@ -26,7 +27,7 @@ export const WorkList: React.FC<Props> = (props) => {
     trail: 100,
   })
   return (
-    <Ul>
+    <Ul style={props.style}>
       {transition((styles, item) => (
         <Li style={styles}>
           <Link to={`/work/${item.id}`}>

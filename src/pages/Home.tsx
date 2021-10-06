@@ -3,6 +3,7 @@ import * as React from 'react'
 import styled, { useTheme } from 'styled-components'
 
 import { SnsList } from '~/components/SnsList'
+import { UdemyList } from '~/components/UdemyList'
 import { WorkList as WorkListComp } from '~/components/WorkList'
 import { works } from '~/data/works'
 import {
@@ -20,10 +21,12 @@ export const Home: React.FC = () => {
   const styles = useSpring({
     from: {
       opacity: 0,
+      scale: 0.9,
       transform: 'translateY(20px)',
     },
     to: {
       opacity: 1,
+      scale: 1,
       transform: 'translateY(0)',
     },
   })
@@ -64,7 +67,12 @@ export const Home: React.FC = () => {
           }}
         >
           <Inner>
-            <WorkListComp works={works} />
+            <section>
+              <UdemyList />
+            </section>
+            <section style={{ marginTop: space.xl }}>
+              <WorkListComp works={works} />
+            </section>
           </Inner>
         </div>
       </Container>
