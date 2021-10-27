@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Home } from '~/pages/Home'
 import { WorkList } from '~/pages/WorkList'
 import { Privacy as BrellaPrivacy } from '~/pages/privacies/brella/Privacy'
+import { Privacy as ColorbasePrivacy } from '~/pages/privacies/colorbase/Privacy'
 import { Privacy as DarkenPrivacy } from '~/pages/privacies/darken/Privacy'
 import { Privacy as EmojistPrivacy } from '~/pages/privacies/emojist/Privacy'
 import { Privacy as JazzPrivacy } from '~/pages/privacies/jazz/Privacy'
@@ -28,6 +29,9 @@ const Root: React.FC = () => {
         </Route>
         <Route path="/about" exact={true}>
           <About />
+        </Route>
+        <Route path="/colorbase/privacy" exact={true}>
+          <ColorbasePrivacy />
         </Route>
         <Route path="/naker/privacy" exact={true}>
           <NakerPrivacy />
