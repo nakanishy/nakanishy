@@ -1,7 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { SnsList } from '~/components/SnsList'
 import {
   fontSize,
   fontWeight,
@@ -15,26 +14,19 @@ export const Home: React.FC = () => {
       <Container>
         <div
           style={{
-            height: 500,
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            maxWidth: 1000,
+            marginRight: 'auto',
+            marginLeft: 'auto',
+            height: '100%',
           }}
         >
-          <div
-            style={{
-              position: 'relative',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              maxWidth: 1000,
-              marginRight: 'auto',
-              marginLeft: 'auto',
-              height: '100%',
-            }}
-          >
-            <Name style={{ marginTop: '-10%' }}>nakanishy</Name>
-            <Bio style={{ marginTop: space.m * 1.5 }}>test</Bio>
-            <SnsList style={{ marginTop: space.l }} />
-          </div>
+          <Name>@nakanishy</Name>
+          <Bio style={{ marginTop: space.m * 1.5 }}>Creator</Bio>
         </div>
       </Container>
     </>
@@ -42,6 +34,7 @@ export const Home: React.FC = () => {
 }
 
 const Container = styled('div')((props) => ({
+  height: '100%',
   backgroundColor: props.theme.bg1,
   transition: 'background-color 200ms ease-in-out',
 }))
