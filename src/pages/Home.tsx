@@ -1,11 +1,7 @@
-import { animated, useSpring } from '@react-spring/web'
 import * as React from 'react'
-import styled, { useTheme } from 'styled-components'
+import styled from 'styled-components'
 
 import { SnsList } from '~/components/SnsList'
-import { UdemyList } from '~/components/UdemyList'
-import { WorkList as WorkListComp } from '~/components/WorkList'
-import { works } from '~/data/works'
 import {
   fontSize,
   fontWeight,
@@ -13,23 +9,7 @@ import {
   media,
   space,
 } from '~/styles/variables'
-
-import { Inner } from '../components/Inner'
-
 export const Home: React.FC = () => {
-  const theme = useTheme()
-  const styles = useSpring({
-    from: {
-      opacity: 0,
-      scale: 0.9,
-      transform: 'translateY(20px)',
-    },
-    to: {
-      opacity: 1,
-      scale: 1,
-      transform: 'translateY(0)',
-    },
-  })
   return (
     <>
       <Container>
@@ -38,58 +18,35 @@ export const Home: React.FC = () => {
             height: 500,
           }}
         >
-          <Section style={{ height: '100%' }}>
-            <Inner
-              style={{
-                position: 'relative',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                height: '100%',
-              }}
-            >
-              <Name style={{ marginTop: '-10%', ...styles }}>nakanishy</Name>
-              <Bio style={{ marginTop: space.m * 1.5, ...styles }}>
-                Designer Developer Hybrid based in 🇯🇵
-              </Bio>
-              <animated.div style={styles}>
-                <SnsList style={{ marginTop: space.l }} />
-              </animated.div>
-            </Inner>
-          </Section>
-        </div>
-        <div
-          style={{
-            minHeight: '100%',
-            paddingBottom: space.xl,
-            backgroundColor: theme.bg1,
-          }}
-        >
-          <Inner>
-            <section>
-              <UdemyList />
-            </section>
-            <section style={{ marginTop: space.xl }}>
-              <WorkListComp works={works} />
-            </section>
-          </Inner>
+          <div
+            style={{
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              maxWidth: 1000,
+              marginRight: 'auto',
+              marginLeft: 'auto',
+              height: '100%',
+            }}
+          >
+            <Name style={{ marginTop: '-10%' }}>nakanishy</Name>
+            <Bio style={{ marginTop: space.m * 1.5 }}>test</Bio>
+            <SnsList style={{ marginTop: space.l }} />
+          </div>
         </div>
       </Container>
     </>
   )
 }
 
-const Section = styled('section')((props) => ({
-  backgroundColor: props.theme.bg1,
-}))
-
 const Container = styled('div')((props) => ({
   backgroundColor: props.theme.bg1,
   transition: 'background-color 200ms ease-in-out',
 }))
 
-const Name = styled(animated.h1)((props) => ({
+const Name = styled('h1')((props) => ({
   color: props.theme.fg1,
   fontSize: fontSize.xxxxxl,
   fontWeight: fontWeight.bold,
@@ -100,7 +57,7 @@ const Name = styled(animated.h1)((props) => ({
   },
 }))
 
-const Bio = styled(animated.p)((props) => ({
+const Bio = styled('p')((props) => ({
   maxWidth: 700,
   color: props.theme.fg1,
   fontSize: fontSize.xxl,
